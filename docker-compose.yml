@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  sandbox-workspace:
+    build: ./workspace
+    volumes:
+      - "./app:/home/sandbox/app"
+    ports:
+      - "3000:3000"
+      - "10080:22"
+    tty: true
+    privileged: true
