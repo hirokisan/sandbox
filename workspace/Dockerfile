@@ -88,8 +88,8 @@ EXPOSE 22
 
 #USER $user
 #RUN git clone -b sandbox-use https://github.com/hirokisan/dotfiles.git ~/dotfiles
-#ENV PATH $PATH:/home/$user/.nodebrew/current/bin:$PATH
-#ENV PATH "$PATH:`yarn global bin`"
+ENV PATH $PATH:/home/$user/.nodebrew/current/bin:$PATH
+ENV PATH "$PATH:`yarn global bin`"
 #USER root
 
 ##########################
