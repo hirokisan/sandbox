@@ -86,9 +86,11 @@ EXPOSE 22
 
 #### Install dotfiles ####
 
-USER $user
-RUN git clone https://github.com/hirokisan/dotfiles.git
-USER root
+#USER $user
+#RUN git clone https://github.com/hirokisan/dotfiles.git ~/dotfiles
+#ENV PATH $PATH:/home/$user/.nodebrew/current/bin:$PATH
+#ENV PATH "$PATH:`yarn global bin`"
+#USER root
 
 ##########################
 
@@ -134,6 +136,30 @@ RUN sudo yum -y install mariadb mariadb-server
 USER root
 
 ##########################
+
+#### Install npm ####
+
+RUN yum install -y epel-release
+RUN yum install -y nodejs
+RUN yum install -y npm --enablerepo=epel
+
+#####################
+
+#### Install nodebrew ####
+
+USER $user
+RUN curl -L git.io/nodebrew | perl - setup
+RUN nodebrew install v8.9.4
+RUN nodebrew use v8.9.4
+USER root
+
+##########################
+
+#### Install yarn ####
+
+RUN npm install -g yarn
+
+########################
 
 #### Systemctl ####
 # Basically Docker have concept that each process has each container, but this is sandbox, so we use 1 container having some process

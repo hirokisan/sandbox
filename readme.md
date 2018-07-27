@@ -31,7 +31,7 @@ $ sudo sh -c "echo 127.0.0.1 sandbox.local >> /etc/hosts"
 
 ## ADD KEYS(Modify $PATH by yourself)
 ```
-$ ssh-keygen -f ~/$PATH/sandbox/workspace
+$ ssh-keygen -f ~/$PATH/sandbox/workspace/id_rsa
 ```
 
 ## ADD SSH CONFIG(Modify $PATH by yourself)
