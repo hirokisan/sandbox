@@ -2,6 +2,7 @@ Sandbox with docker
 ====
 
 This is sandbox to run apps
+
 Dont think too much, just like a toy
 
 ## Build with compose
@@ -36,7 +37,7 @@ $ ssh-keygen -f ~/$PATH/sandbox/workspace/id_rsa
 
 ## ADD SSH CONFIG(Modify $PATH by yourself)
 ```
-printf "\
+$ printf "\
 Host sandbox.local
   HostName 127.0.0.1
   User sandbox
