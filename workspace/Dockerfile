@@ -87,7 +87,7 @@ EXPOSE 22
 #### Install dotfiles ####
 
 #USER $user
-#RUN git clone https://github.com/hirokisan/dotfiles.git ~/dotfiles
+#RUN git clone -b sandbox-use https://github.com/hirokisan/dotfiles.git ~/dotfiles
 #ENV PATH $PATH:/home/$user/.nodebrew/current/bin:$PATH
 #ENV PATH "$PATH:`yarn global bin`"
 #USER root
