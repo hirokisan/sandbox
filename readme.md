@@ -58,6 +58,12 @@ $ ssh sandbox.local
 $ bash ~/init.sh
 ```
 
+## Run this command if you want to use dotfiles
+```
+$ git clone -b sandbox-use https://github.com/hirokisan/dotfiles.git ~/dotfiles
+$ bash ~/dotfiles/install.sh
+```
+
 ## Referense
 * [docker-compose](https://docs.docker.com/compose/compose-file/)
 * [docker-compose-build](https://docs.docker.com/compose/reference/build/)
