@@ -88,8 +88,6 @@ EXPOSE 22
 
 #USER $user
 #RUN git clone -b sandbox-use https://github.com/hirokisan/dotfiles.git ~/dotfiles
-ENV PATH $PATH:/home/$user/.nodebrew/current/bin:$PATH
-ENV PATH "$PATH:`yarn global bin`"
 #USER root
 
 ##########################
@@ -148,9 +146,11 @@ RUN yum install -y npm --enablerepo=epel
 #### Install nodebrew ####
 
 USER $user
+ENV PATH $PATH:/home/$user/.nodebrew/current/bin:$PATH
 RUN curl -L git.io/nodebrew | perl - setup
 RUN nodebrew install v8.9.4
 RUN nodebrew use v8.9.4
+RUN echo "export PATH=$HOME/.nodebrew/current/bin:$PATH" >> ~/.zshrc
 USER root
 
 ##########################
@@ -158,6 +158,7 @@ USER root
 #### Install yarn ####
 
 RUN npm install -g yarn
+ENV PATH "$PATH:`yarn global bin`"
 
 ########################
 
